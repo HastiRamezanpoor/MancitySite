@@ -21,7 +21,6 @@ header {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
 }
 
 .header-content .logo {
@@ -33,7 +32,7 @@ header {
 }
 
 .header-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 1rem 0;
     font-weight: bold;
     letter-spacing: 2px;
@@ -81,28 +80,28 @@ section:hover {
 
 section h2 {
     margin-top: 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
     border-bottom: 4px solid #0046b3;
     display: inline-block;
     padding-bottom: 0.5rem;
     color: #0046b3;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
 /* Content styling */
 .matches-content, .videos-content, .news-content, .players-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .matches-content div, .videos-content div, .news-content div, .players-content div {
+    flex: 1 1 calc(45% - 1rem);
+    padding: 1.5rem;
     background: #ffffff;
     border-radius: 15px;
     text-align: center;
-    padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -129,14 +128,13 @@ section h2 {
 
 /* About Section */
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    display: flex;
     align-items: center;
+    gap: 2rem;
 }
 
 .about-content img {
-    width: 100%;
+    flex: 1;
     max-width: 500px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -148,10 +146,10 @@ section h2 {
 }
 
 .about-content p {
+    flex: 2;
     font-size: 1.3rem;
     color: #444;
     line-height: 1.8;
-    text-align: justify;
 }
 
 /* Contact Section */
@@ -221,23 +219,11 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header {
-        padding: 3rem 1rem;
-    }
-
-    .header-content h1 {
-        font-size: 2rem;
-    }
-
     .about-content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
-    .about-content img {
-        margin-bottom: 1rem;
-    }
-
-    section h2 {
-        font-size: 1.8rem;
+    .matches-content div, .videos-content div, .players-content div {
+        flex: 1 1 100%;
     }
 }
